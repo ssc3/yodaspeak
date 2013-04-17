@@ -1,7 +1,11 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Simple Ajax Example</title>
+<link rel="stylesheet" type="text/css" href="css/index_css.css">
+<title>Yodafy</title>
+
 <script language="Javascript">
+
 function xmlhttpPost(strURL) {
     var xmlHttpReq = false;
     var self = this;
@@ -26,13 +30,72 @@ function getquerystring() {
 function updatepage(str){
     document.getElementById("result").innerHTML = str;
 }
+
+function show_sharing_opt(hl_text) {
+    document.getElementById(hl_text.id).style.backgroundColor="#D3D3D3";
+}
+function unshow_sharing_opt(hl_text) {
+    document.getElementById(hl_text.id).style.backgroundColor="#ffffff";
+}
 </script>
+
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "dd27c13d-82ff-4e39-935b-83bb10031655", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
+
 </head>
 <body>
-<form name="f1">
-  <p>word: <input name="mystring" type="search">  
-  <input value="Go" type="button" onclick='JavaScript:xmlhttpPost("/cgi-bin/ajax.py")'></p>
-  <div id="result"></div>
+
+    
+    <div id="yodafy_logo">
+<img border="0" src="yodafy.png" alt="yodafy">
+    </div>
+
+
+    <form name="f1" autocomplete="on" align="center">
+<!-- type=submit better than type=button -->
+<div id="searchBoxOne">    
+    <p>
+    <input id="search_box" name="mystring" type="search" placeholder="Enter text you must" class="textbox" onkeydown="Javascript:xmlhttpPost('/cgi-bin/ajax.py')"
+      >
+      <script>document.getElementById('search_box').focus();
+      </script>
+      <br>  
+  <input 
+      value="Yodafy"
+      type="button" 
+      onclick='JavaScript:xmlhttpPost("/cgi-bin/ajax.py")'
+
+  >
+  </p>
+  <div id="result" class="hover_text" 
+      onmouseover='Javascript:show_sharing_opt(this)'
+      onmouseout='Javascript:unshow_sharing_opt(this)'
+  >
+  </div>
 </form>
+</div>
+
+<br>
+<br>
+<div id="yoda_bubble">
+</div>
+<div id="show_yoda">
+    <img src="yoda.gif" alt="yodafy" height="119">
+    
+</div>
+<br>
+<br>
+
+<div id="share_this">
+    <p>
+<span class='st_sharethis_hcount' displayText='ShareThis'></span>
+<span class='st_facebook_hcount' displayText='Facebook'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_googleplus_hcount' displayText='Google +'></span>
+<span class='st_email_hcount' displayText='Email'></span>
+</p>
+</div>
 </body>
 </html>
